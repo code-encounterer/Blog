@@ -83,6 +83,7 @@ function Signup() {
               ) : "Sign Up"
             }
             </Button>
+            <OAuth />
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Have an account?</span>
