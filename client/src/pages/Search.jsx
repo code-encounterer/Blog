@@ -44,7 +44,8 @@ export default function Search() {
         const data = await res.json();
         setPosts(data.posts);
         setLoading(false);
-        if (data.totalPosts > 9) {
+        console.log(data);
+        if (data.posts.length === 9) {
           setShowMore(true);
         } else {
           setShowMore(false);
@@ -74,7 +75,6 @@ export default function Search() {
     urlParams.set('searchTerm', sidebarData.searchTerm);
     urlParams.set('sort', sidebarData.sort);
     urlParams.set('category', sidebarData.category);
-    console.log(sidebarData);
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
   };
@@ -92,7 +92,7 @@ export default function Search() {
     if (res.ok) {
       const data = await res.json();
       setPosts([...posts, ...data.posts]);
-      if (data.totalPosts > 9) {
+      if (data.posts.length === 9) {
         setShowMore(true);
       } else {
         setShowMore(false);
