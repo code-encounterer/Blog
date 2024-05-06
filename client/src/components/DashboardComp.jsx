@@ -47,7 +47,7 @@ function DashboardComp() {
 
         const fetchComments = async () => {
             try {
-                const response = await fetch('api/comment/getcomments?limit=5');
+                const response = await fetch('api/comment/getcomments?limit=5&sort=desc');
                 const data = await response.json();
                 if(response.ok){
                     setComments(data.comments);

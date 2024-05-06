@@ -15,7 +15,7 @@ function DashComments() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await fetch(`/api/comment/getcomments`);
+        const response = await fetch(`/api/comment/getcomments?sort=desc`);
         const data = await response.json();
         if(response.ok){
           setComments(data.comments)
@@ -35,7 +35,7 @@ function DashComments() {
   const handleShowMore = async () => {
     const startIndex = comments.length;
     try {
-      const response = await fetch(`/api/comment/getcomments?startIndex=${startIndex}`);
+      const response = await fetch(`/api/comment/getcomments?startIndex=${startIndex}&sort=desc`);
       const data = await response.json();
       if(response.ok){
         setUsers((prev) => [...prev, ...data.comments]);
